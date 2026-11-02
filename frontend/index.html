@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinuxGuard Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <h2>LinuxGuard</h2>
+    <p class="muted">System Security Monitor</p>
+
+    <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#monitoring">Log Analysis</a>
+        <a href="#monitoring">Security Audit</a>
+        <a href="#monitoring">System Health</a>
+        <a href="#reports">Audit Reports</a>
+    </nav>
+
+    <div class="side-bottom">Ubuntu Linux · Bash</div>
+</aside>
+
+<main>
+    <header id="dashboard">
+        <div>
+            <p class="eyebrow">SYSTEM ADMINISTRATION</p>
+            <h1>Security Dashboard</h1>
+            <p class="muted">Monitor logs, security events and system health.</p>
+        </div>
+        <button onclick="runAction('health')">Refresh System</button>
+    </header>
+
+    <section class="cards">
+        <article class="card">
+            <p>Platform</p>
+            <h2>Ubuntu Linux</h2>
+            <span>Live system information</span>
+        </article>
+        <article class="card">
+            <p>Monitoring Engine</p>
+            <h2>Bash Script</h2>
+            <span>System command execution</span>
+        </article>
+        <article class="card">
+            <p>Backend Service</p>
+            <h2>Python Flask</h2>
+            <span>Local API connection</span>
+        </article>
+    </section>
+
+    <section class="panel" id="monitoring">
+        <h2>Monitoring Operations</h2>
+        <p class="muted">Select an operation to read information from Ubuntu.</p>
+
+        <div class="button-row">
+            <button onclick="runAction('logs')">Analyze Logs</button>
+            <button onclick="runAction('security')">Security Audit</button>
+            <button onclick="runAction('health')">System Health</button>
+        </div>
+
+        <div class="output-heading">
+            <h3>Operation Results</h3>
+            <span id="status">Ready</span>
+        </div>
+
+        <pre id="output">Click an operation to display system information.</pre>
+    </section>
+
+    <section class="panel" id="reports">
+        <h2>Audit Reports</h2>
+        <p class="muted">
+            Generate a report containing system health, available security
+            events and recent system logs.
+        </p>
+        <button onclick="downloadReport()">Generate & Download Report</button>
+    </section>
+
+    <footer>
+        Linux-Based Automated Log Analysis, Security Auditing,
+        and System Health Monitoring Using Bash Scripting
+    </footer>
+</main>
+
+<script src="/script.js"></script>
+</body>
+</html>

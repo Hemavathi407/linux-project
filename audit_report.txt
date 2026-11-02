@@ -1,0 +1,159 @@
+LINUX SECURITY AND HEALTH AUDIT REPORT
+Generated: Sun Oct 25 07:14:00 PM IST 2026
+Hostname: au
+
+===== SYSTEM HEALTH =====
+Hostname: au
+Date: Sun Oct 25 07:14:00 PM IST 2026
+
+===== UPTIME =====
+ 19:14:00 up  1:13,  1 user,  load average: 1.92, 1.90, 1.85
+
+===== MEMORY USAGE =====
+               total        used        free      shared  buff/cache   available
+Mem:           7.2Gi       2.3Gi       1.4Gi        69Mi       3.5Gi       4.9Gi
+Swap:          4.0Gi          0B       4.0Gi
+
+===== DISK USAGE =====
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.5G  2.4M  1.5G   1% /run
+/dev/sda2        79G   14G   61G  19% /
+tmpfs           3.7G     0  3.7G   0% /dev/shm
+none            1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           3.7G   16K  3.7G   1% /tmp
+none            1.0M     0  1.0M   0% /run/credentials/systemd-resolved.service
+tmpfs           743M  100K  743M   1% /run/user/1000
+
+===== CPU LOAD AVERAGES =====
+1.92 1.90 1.85 1/1194 12629
+
+===== TOP PROCESSES =====
+    PID COMMAND         %CPU %MEM
+   5783 Isolated Web Co 52.0  8.7
+   4636 firefox         45.1  8.9
+   3403 gnome-shell     24.0  6.0
+   7316 ptyxis           6.8  4.7
+   5613 Isolated Servic  3.7  1.5
+   5165 Privileged Cont  2.5  2.2
+     49 ksoftirqd/5      2.5  0.0
+  12401 python           1.6  0.4
+  11875 Isolated Web Co  1.5  1.3
+  11697 Isolated Web Co  1.1  1.5
+
+===== SECURITY AUDIT =====
+Date: Sun Oct 25 07:14:00 PM IST 2026
+
+Logged-in users:
+1000     seat0        2026-10-25 18:01
+1000     tty2         2026-10-25 18:01
+
+Failed login events:
+
+Local user accounts:
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+proxy
+www-data
+backup
+list
+irc
+_apt
+nobody
+systemd-network
+dhcpcd
+messagebus
+syslog
+systemd-resolve
+_chrony
+tss
+uuidd
+systemd-oom
+whoopsie
+dnsmasq
+avahi
+nm-openvpn
+tcpdump
+sssd
+speech-dispatcher
+usbmux
+cups-pk-helper
+fwupd-refresh
+saned
+geoclue
+cups-browsed
+pipewire
+hplip
+gnome-remote-desktop
+polkitd
+rtkit
+colord
+gdm
+alliance
+hema
+rahul
+priya
+arun
+
+===== SYSTEM LOG ANALYSIS =====
+Date: Sun Oct 25 07:14:00 PM IST 2026
+
+Oct 25 19:07:14 au gnome-shell[3403]: libinput error: event6  - VirtualBox mouse integration: client bug: event processing lagging behind by 22ms, your system is too slow
+Oct 25 19:07:52 au systemd[3023]: Started snap.firefox.firefox-0bbb3a9e-6922-4a02-a32c-b5c9e1b0cb34.scope.
+Oct 25 19:07:53 au firefox[11570]: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+Oct 25 19:07:54 au systemd[3023]: snap.firefox.firefox-0bbb3a9e-6922-4a02-a32c-b5c9e1b0cb34.scope: Consumed 2.166s CPU time over 2.716s wall clock time, 20M memory peak.
+Oct 25 19:07:54 au kernel: workqueue: css_killed_work_fn hogged CPU for >10000us 35 times, consider switching to WQ_UNBOUND
+Oct 25 19:08:18 au systemd[3023]: Started snap.firefox.firefox-d7961b3f-c6b7-491a-915d-99a5ca5f7676.scope.
+Oct 25 19:08:19 au firefox[11748]: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+Oct 25 19:08:21 au systemd[3023]: snap.firefox.firefox-d7961b3f-c6b7-491a-915d-99a5ca5f7676.scope: Consumed 2.438s CPU time over 3.496s wall clock time, 19.9M memory peak.
+Oct 25 19:10:05 au systemd[1]: Starting sysstat-collect.service - system activity accounting tool...
+Oct 25 19:10:05 au systemd[1]: sysstat-collect.service: Deactivated successfully.
+Oct 25 19:10:05 au systemd[1]: Finished sysstat-collect.service - system activity accounting tool.
+Oct 25 19:11:20 au systemd[3023]: Started snap.firefox.firefox-9b9a82c1-8627-4143-829f-e63a2ed1f447.scope.
+Oct 25 19:11:21 au firefox[11997]: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+Oct 25 19:11:22 au systemd[3023]: snap.firefox.firefox-9b9a82c1-8627-4143-829f-e63a2ed1f447.scope: Consumed 1.460s CPU time over 1.982s wall clock time, 20M memory peak.
+Oct 25 19:11:29 au gnome-shell[3403]: libinput error: event6  - VirtualBox mouse integration: client bug: event processing lagging behind by 25ms, your system is too slow
+Oct 25 19:11:30 au kernel: workqueue: fqdir_free_fn hogged CPU for >10000us 11 times, consider switching to WQ_UNBOUND
+Oct 25 19:11:42 au systemd[3023]: Started snap.firefox.firefox-e2e3f69f-0002-4b31-b48d-943180014f71.scope.
+Oct 25 19:11:42 au firefox[12184]: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+Oct 25 19:11:42 au gnome-shell[3403]: libinput error: event6  - VirtualBox mouse integration: client bug: event processing lagging behind by 27ms, your system is too slow
+Oct 25 19:13:11 au systemd[3023]: Started snap.firefox.firefox-1e34b7a7-b636-45a6-bd22-32861c1bcee1.scope.
+Oct 25 19:13:12 au firefox[12427]: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+Oct 25 19:13:13 au systemd[3023]: snap.firefox.firefox-1e34b7a7-b636-45a6-bd22-32861c1bcee1.scope: Consumed 1.561s CPU time over 2.179s wall clock time, 20M memory peak.
+Oct 25 19:13:53 au kernel: audit: type=1400 audit(1792935833.790:294): apparmor="DENIED" operation="open" class="file" profile="who" name="/etc/nsswitch.conf" pid=12600 comm="who" requested_mask="r" denied_mask="r" fsuid=1000 ouid=0
+Oct 25 19:13:53 au kernel: audit: type=1400 audit(1792935833.792:295): apparmor="DENIED" operation="open" class="file" profile="who" name="/etc/passwd" pid=12600 comm="who" requested_mask="r" denied_mask="r" fsuid=1000 ouid=0
+Oct 25 19:13:53 au kernel: audit: type=1400 audit(1792935833.792:296): apparmor="DENIED" operation="open" class="file" profile="who" name="/etc/nsswitch.conf" pid=12600 comm="who" requested_mask="r" denied_mask="r" fsuid=1000 ouid=0
+Oct 25 19:13:53 au kernel: audit: type=1400 audit(1792935833.792:297): apparmor="DENIED" operation="open" class="file" profile="who" name="/etc/passwd" pid=12600 comm="who" requested_mask="r" denied_mask="r" fsuid=1000 ouid=0
+Oct 25 19:14:00 au kernel: audit: type=1400 audit(1792935840.589:298): apparmor="DENIED" operation="open" class="file" profile="who" name="/etc/nsswitch.conf" pid=12633 comm="who" requested_mask="r" denied_mask="r" fsuid=1000 ouid=0
+Oct 25 19:14:00 au kernel: audit: type=1400 audit(1792935840.589:299): apparmor="DENIED" operation="open" class="file" profile="who" name="/etc/passwd" pid=12633 comm="who" requested_mask="r" denied_mask="r" fsuid=1000 ouid=0
+Oct 25 19:14:00 au kernel: audit: type=1400 audit(1792935840.589:300): apparmor="DENIED" operation="open" class="file" profile="who" name="/etc/nsswitch.conf" pid=12633 comm="who" requested_mask="r" denied_mask="r" fsuid=1000 ouid=0
+Oct 25 19:14:00 au kernel: audit: type=1400 audit(1792935840.589:301): apparmor="DENIED" operation="open" class="file" profile="who" name="/etc/passwd" pid=12633 comm="who" requested_mask="r" denied_mask="r" fsuid=1000 ouid=0
+
+===== WARNINGS AND ERRORS =====
+Oct 25 18:44:51 au update-notifier[3674]: gtk_widget_get_scale_factor: assertion 'GTK_IS_WIDGET (widget)' failed
+Oct 25 18:44:51 au update-notifier[3674]: gtk_widget_get_scale_factor: assertion 'GTK_IS_WIDGET (widget)' failed
+Oct 25 18:44:51 au gnome-shell[3403]: Type GITypeInfo of property AccountsService.User::password-mode does not match return type GITypeInfo of getter get_password_mode. Falling back to slow path
+Oct 25 18:44:51 au kernel: workqueue: vmstat_update hogged CPU for >10000us 11 times, consider switching to WQ_UNBOUND
+Oct 25 18:44:52 au kernel: workqueue: srcu_invoke_callbacks hogged CPU for >10000us 11 times, consider switching to WQ_UNBOUND
+Oct 25 18:44:57 au gnome-shell[3403]: Cursor update failed: drmModeAtomicCommit: Invalid argument
+Oct 25 18:45:24 au kernel: workqueue: ata_sff_pio_task hogged CPU for >10000us 67 times, consider switching to WQ_UNBOUND
+Oct 25 18:46:38 au kernel: workqueue: vmstat_shepherd hogged CPU for >10000us 131 times, consider switching to WQ_UNBOUND
+Oct 25 18:46:45 au gnome-shell[3403]: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.Failed: Set global engine failed: Operation was cancelled
+                                      
+                                      (No stack trace)
+Oct 25 18:46:53 au gnome-shell[3403]: Gio.DBusError: GDBus.Error:org.freedesktop.DBus.Error.Failed: Set global engine failed: Operation was cancelled
+                                      
+                                      (No stack trace)
+Oct 25 18:51:36 au kernel: workqueue: mld_ifc_work hogged CPU for >10000us 7 times, consider switching to WQ_UNBOUND
+Oct 25 18:51:54 au kernel: workqueue: psi_avgs_work hogged CPU for >10000us 35 times, consider switching to WQ_UNBOUND
+Oct 25 19:07:14 au kernel: workqueue: delayed_vfree_work hogged CPU for >10000us 11 times, consider switching to WQ_UNBOUND
+Oct 25 19:07:54 au kernel: workqueue: css_killed_work_fn hogged CPU for >10000us 35 times, consider switching to WQ_UNBOUND
+Oct 25 19:11:30 au kernel: workqueue: fqdir_free_fn hogged CPU for >10000us 11 times, consider switching to WQ_UNBOUND

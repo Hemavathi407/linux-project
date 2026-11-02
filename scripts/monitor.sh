@@ -1,0 +1,122 @@
+#!/bin/bash
+
+# Linux Security and System Health Monitoring Dashboard
+
+set -u
+
+ACTION="${1:-health}"
+PROJECT="$HOME/linux-security-dashboard"
+REPORT="$PROJECT/audit_report.txt"
+
+show_logs() {
+    echo "===== SYSTEM LOG ANALYSIS ====="
+    echo "Date: $(date)"
+    echo
+
+    if command -v journalctl >/dev/null 2>&1; then
+        journalctl -n 30 --no-pager 2>&1
+    else
+        echo "System journal is unavailable."
+    fi
+
+    echo
+    echo "===== WARNINGS AND ERRORS ====="
+
+    if command -v journalctl >/dev/null 2>&1; then
+        journalctl -p warning -n 15 --no-pager 2>&1
+    fi
+}
+
+security_audit() {
+    echo "===== SECURITY AUDIT ====="
+    echo "Date: $(date)"
+    echo
+
+    echo "Logged-in users:"
+    who
+
+    echo
+    echo "Failed login events:"
+
+    if [ -r /var/log/auth.log ]; then
+        grep -Ei 'failed password|invalid user|authentication failure' \
+            /var/log/auth.log | tail -n 20 || true
+    elif [ -r /var/log/secure ]; then
+        grep -Ei 'failed password|invalid user|authentication failure' \
+            /var/log/secure | tail -n 20 || true
+    elif command -v journalctl >/dev/null 2>&1; then
+        journalctl --since "24 hours ago" --no-pager 2>&1 |
+            grep -Ei 'failed password|invalid user|authentication failure' |
+            tail -n 20 || true
+    else
+        echo "Authentication logs are unavailable."
+    fi
+
+    echo
+    echo "Local user accounts:"
+    cut -d: -f1 /etc/passwd
+}
+
+system_health() {
+    echo "===== SYSTEM HEALTH ====="
+    echo "Hostname: $(hostname)"
+    echo "Date: $(date)"
+    echo
+
+    echo "===== UPTIME ====="
+    uptime
+
+    echo
+    echo "===== MEMORY USAGE ====="
+    free -h
+
+    echo
+    echo "===== DISK USAGE ====="
+    df -h
+
+    echo
+    echo "===== CPU LOAD AVERAGES ====="
+    cat /proc/loadavg
+
+    echo
+    echo "===== TOP PROCESSES ====="
+    ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head -n 11
+}
+
+generate_report() {
+    mkdir -p "$PROJECT"
+
+    {
+        echo "LINUX SECURITY AND HEALTH AUDIT REPORT"
+        echo "Generated: $(date)"
+        echo "Hostname: $(hostname)"
+        echo
+        system_health
+        echo
+        security_audit
+        echo
+        show_logs
+    } > "$REPORT" 2>&1
+
+    echo "Audit report generated successfully."
+    echo "Location: $REPORT"
+}
+
+case "$ACTION" in
+    logs)
+        show_logs
+        ;;
+    security)
+        security_audit
+        ;;
+    health)
+        system_health
+        ;;
+    report)
+        generate_report
+        ;;
+    *)
+        echo "Invalid action. Use logs, security, health or report."
+        exit 1
+        ;;
+esac
